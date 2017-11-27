@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./css/harry.css">
+  </head>
+  <body>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/space.js"></script>
+    <script src="../socket.io/socket.io.js"></script>
+    <script>
+      window.socket = io()
+      socket.on('worldUpdate', function (data) {
+        if (!window.map) {
+          init(data)
+        } else {
+          window.map = data
+        }
+      })
+    </script>
+  </body>
+</html>

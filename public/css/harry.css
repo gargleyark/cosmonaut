@@ -1,0 +1,480 @@
+/* vietnamese */
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Space Mono'), local('SpaceMono-Regular'), url(https://fonts.gstatic.com/s/spacemono/v2/Hd9kwbkpFTcHMXxP8FyUPwsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Space Mono'), local('SpaceMono-Regular'), url(https://fonts.gstatic.com/s/spacemono/v2/L1KCByOyogPfEIepxkwC2AsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Space Mono'), local('SpaceMono-Regular'), url(https://fonts.gstatic.com/s/spacemono/v2/adVweg3BJhE6r8jYmXseHQzyDMXhdD8sAj6OAJTFsBI.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+
+.left--1 {
+  left: 2400px;
+}
+
+.left-0 {
+  left: 3000px;
+}
+
+.left-1 {
+  left: 3600px;
+}
+
+.left-2 {
+  left: 4200px;
+}
+
+.left-3 {
+  left: 4800px;
+}
+
+.left-4 {
+  left: 5400px;
+}
+
+.left--5 {
+  left: 0px;
+}
+
+.left--4 {
+  left: 600px;
+}
+
+.left--3 {
+  left: 1200px;
+}
+
+.left--2 {
+  left: 1800px;
+}
+
+.top--5 {
+  top: 0px;
+}
+
+.top--4 {
+  top: 600px;
+}
+
+.top--3 {
+  top: 1200px;
+}
+
+.top--2 {
+  top: 1800px;
+}
+
+.top--1 {
+  top: 2400px;
+}
+
+.top-0 {
+  top: 3000px;
+}
+
+.top-1 {
+  top: 3600px;
+}
+
+.top-2 {
+  top: 4200px;
+}
+
+.top-3 {
+  top: 4800px;
+}
+
+.top-4 {
+  top: 5400px;
+}
+
+.tile {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+}
+
+.world {
+  width: 6000px;
+  height: 6000px;
+  position: relative;
+  background-image: url(../images/bg.png);
+  background-color: black;
+  transition: left 1s, top 1s;
+}
+
+.solar-system-tile {
+  display: none;
+  position: absolute;
+}
+
+.show .solar-system-tile {
+  display: block;
+}
+
+.show .solar-system {
+  /*opacity: 0.01;*/
+}
+
+.section {
+  margin-bottom: 25px;
+  border-bottom: 1px solid gray;
+}
+
+.ship {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  transform: rotate(0deg);
+  z-index: 3;
+}
+
+.ship.ship-multiplayer {
+  position: absolute;
+  z-index: 3;
+}
+
+.ship.ai {
+  position: absolute;
+  transition: top 90s, left 90s, bottom 90s, right 90s;
+}
+
+.ship.ai.left {
+  left: -50px;
+}
+
+.ship.ai.bottom {
+  top: -50px;
+}
+
+.ship .name {
+  color: white;
+  font-size: 10px;
+  text-align: center;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+  display: none;
+  width: 150px;
+  left: -58px;
+  position: absolute;
+}
+
+.ship .name:hover {
+  opacity: 1;
+}
+
+.ship-multiplayer.ship .name {
+  display: block;
+}
+
+.ship.id-0 {
+  background: url('../images/ships/0.png')
+}
+
+.ship.id-1 {
+  background: url('../images/ships/1.png')
+}
+
+.ship.id-2 {
+  background: url('../images/ships/2.png')
+}
+
+.ship.id-3 {
+  background: url('../images/ships/3.png')
+}
+
+.ship.id-4 {
+  background: url('../images/ships/4.png')
+}
+
+.ship.id-5 {
+  background: url('../images/ships/5.png')
+}
+
+body {
+  font-family: 'Space Mono', monospace;
+  overflow: hidden;
+  background: black;
+}
+
+.solar-system {
+  position: absolute;
+  -webkit-animation:spin 4s linear infinite;
+  -moz-animation:spin 4s linear infinite;
+  animation:spin 4s linear infinite;
+  z-index: 2;
+}
+
+.solar-system-tile {
+  position: absolute;
+  width: 350px;
+  margin-left: -130px;
+  text-align: center;
+  height: 200px;
+  color: lightgray;
+  z-index: 1;
+}
+
+.system-name {
+  font-size: 15px;
+}
+
+.system-type {
+  font-size: 12px;
+  margin-top: 50px;
+  color: lightgray;
+}
+
+.system-type:before {
+  color: darkgray;
+  content: 'type: ';
+}
+
+.header {
+  font-size: 12px;
+  color: lightgray;
+}
+
+.header:before {
+  color: darkgray;
+}
+
+.system-population {
+  font-size: 12px;
+  color: lightgray;
+}
+
+.system-population:before {
+  color: darkgray;
+  content: 'population: ';
+}
+
+.planets-tile {
+  width: 100%;
+}
+
+
+.planets-tile:before {
+  content: 'planets:';
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  padding-top: 2px;
+  border-top: 1px solid darkgray;
+  margin-top: 5px;
+}
+
+.planets-tile .planet {
+  width: 25%;
+  text-align: center;
+  display: inline-block;
+  color: lightgray;
+  margin-bottom: 10px;
+  font-size: 12px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.planet .planet-name {
+  font-size: 14px;
+}
+
+.planet .planet-type:before {
+  color: darkgray;
+  content: 'type: ';
+}
+
+.planet .planet-minerals:before {
+  color: darkgray;
+  content: 'materials: ';
+}
+
+.quicklook {
+  text-align: center;
+  color: white;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 200px;
+  height: 200px;
+  margin-left: -100px;
+  margin-top: -100px;
+}
+
+.ui-container {
+  position: fixed;
+  width: 200px;
+  right: 0px;
+  top: 0px;
+}
+
+.ui-container.open {
+  height: 100%;
+  z-index: 5;
+}
+
+.tab-controllers {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 35px;
+    border-bottom: 1px solid darkgray;
+    padding-top: 5px;
+    z-index: 3;
+}
+
+.tab-controllers .button {
+  width: 30px;
+  margin: 0px 17px;
+  display: inline-block;
+  height: 30px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.tab-controllers .button.selected, .tab-controllers .button.selected:hover {
+  opacity: 1;
+}
+
+.tab-controllers .button:hover {
+  opacity: 0.7;
+}
+
+.tab-controllers .button.map {
+  background: url('../images/ui/icons/map.png') no-repeat center;
+  background-size: 100%;
+}
+
+.tab-controllers .button.player {
+  background: url('../images/ui/icons/player.png') no-repeat center;
+  background-size: 100%;
+}
+
+.tab-controllers .button.ship {
+  background: url('../images/ui/icons/ship.png') no-repeat center;
+  background-size: 100%;
+}
+
+.tab.show {
+  display: block;
+  z-index: 2;
+}
+
+.tab {
+  display: none;
+  width: 200px;
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  background: rgba(100, 100, 100, 0.2);
+}
+
+.tab > div {
+  overflow: scroll;
+  padding-bottom: 50px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 90%;
+  margin: 0% 5%;
+  margin-top: 50px;
+}
+
+.map-tab .co-ordinates {
+  text-align: center;
+}
+
+.map-tab .nearest-system {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.map-tab .co-ordinates:before {
+  content: 'location: ';
+}
+
+.map-tab .nearest-system:before {
+  content: 'nearest system: ';
+}
+
+.player-tab .name {
+  text-align: center;
+}
+
+.player-tab .level:before {
+  content: 'level: ';
+}
+
+.player-tab .money:before {
+  content: 'money: ';
+}
+
+.tab.ship-tab .ship-details:before, .tab.ship-tab .weapon-details:before {
+  text-align: center;
+  font-size: 14px;
+  color: darkgray;
+}
+
+.tab.ship-tab .ship-details:before {
+  content: 'ship details'
+}
+
+.tab.ship-tab .weapon-details:before {
+  content: 'weapon details'
+}
+
+.tab.ship-tab .ship-details .name.header:before {
+  content: 'name: ';
+}
+
+.tab.ship-tab .ship-details .crew.header:before {
+  content: 'crew: ';
+}
+
+.tab.ship-tab .ship-details .power.header:before {
+  content: 'power: ';
+}
+
+.tab.ship-tab .weapon-details .name.header {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.tab.ship-tab .weapon-details .damage.header:before {
+  content: 'damage: ';
+}
+
+.tab.ship-tab .weapon-details .accuracy.header:before {
+  content: 'accuracy: ';
+}
+
+.tab.ship-tab .weapon-details .accuracy.header:after {
+  content: '/1';
+}
+
+.tab.ship-tab .weapon-details .cooldown.header:before {
+  content: 'cooldown: ';
+}
+
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
